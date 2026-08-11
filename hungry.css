@@ -1,0 +1,181 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+            padding: 40px 0;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1.8fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .wireframe-panel {
+            border: 2px dashed #adb5bd;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .section-label {
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background-color: #6c757d;
+            color: #ffffff;
+            padding: 2px 8px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #212529;
+            padding-bottom: 5px;
+        }
+
+        .meta-text {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Search Filter Controls */
+        .filter-bar {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ced4da;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        /* Feed List Items */
+        .listing-feed {
+            max-height: 500px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-right: 5px;
+        }
+
+        .food-card {
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .food-card:hover {
+            border-color: #212529;
+            background-color: #f1f3f5;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .card-details {
+            font-size: 12px;
+            color: #495057;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 6px;
+            background-color: #e9ecef;
+            border: 1px solid #adb5bd;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+
+        .badge-urgent {
+            background-color: #fff3cd;
+            border-color: #ffeba2;
+            color: #856404;
+        }
+
+        .btn-claim {
+            width: 100%;
+            background-color: #212529;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 3px;
+        }
+
+        /* Map Component Window */
+        .map-canvas {
+            border: 2px dashed #dee2e6;
+            background-color: #f1f3f5;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .map-pin {
+            font-size: 24px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .nav-back:hover {
+            color: #212529;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-layout { grid-template-columns: 1fr; }
+            .map-canvas { height: 350px; }
+        }

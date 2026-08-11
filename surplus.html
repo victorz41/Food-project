@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodBridge - Donor Post Wireframe</title>
+    <link rel="stylesheet" href="surplus.css">
+    <script src="surplus.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="wireframe-card">
+            <span class="section-label">Screen 1B: Quick-Post Interface</span>
+            
+            <h2>Create Surplus Food Broadcast</h2>
+            <p class="subtitle">Logged in as: Cafe Central (ID: rest_9921)</p>
+            
+            <!-- <form onsubmit="alert('Form Processed!\n1. Saved to Cloud Firestore DB\n2. Triggered Firebase Cloud Messaging Ping'); return false;"> -->
+                
+                <!-- 1. FOOD DESCRIPTION -->
+                <div class="form-group">
+                    <label for="food-title">What food inventory do you have surplus of?</label>
+                    <input type="text" id="food-title" placeholder="e.g., 15 Boxed Salads, 8 Loaves of Sourdough Bread" required>
+                </div>
+
+                <!-- 2. CATEGORY & QUANTITY GRID -->
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="food-category">Food Category Tag</label>
+                        <select id="food-category">
+                            <option value="prepared">Perishable / Prepared Meals</option>
+                            <option value="bakery">Bakery / Dry Staple Goods</option>
+                            <option value="produce">Fresh Produce / Fruits</option>
+                            <option value="dairy">Dairy / Refrigerated Goods</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="food-qty">Total Quantity (Estimated Servings)</label>
+                        <input type="number" id="food-qty" min="1" placeholder="e.g., 15" required>
+                    </div>
+                </div>
+
+                <!-- 3. ALLERGEN INFORMATION -->
+                <div class="form-group">
+                    <label>Allergen & Dietary Triggers (Check all that apply)</label>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="alg-nuts"> 
+                            <label for="alg-nuts" style="display:inline; font-weight:normal; text-transform:none;">
+                                Contains Nuts
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="alg-dairy"> 
+                            <label for="alg-dairy" style="display:inline; font-weight:normal; text-transform:none;">
+                                Contains Dairy
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="diet-veg"> 
+                            <label for="diet-veg" style="display:inline; font-weight:normal; text-transform:none;">
+                                Vegetarian Friendly
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="diet-gluten"> 
+                            <label for="diet-gluten" style="display:inline; font-weight:normal; text-transform:none;">
+                                Gluten-Free Choice
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. LOGISTICS & FRESHNESS EXPIRATION TIMERS -->
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="pickup-window">Available Pickup Window Until</label>
+                        <select id="pickup-window">
+                            <option value="1h">Next 1 Hour (Urgent)</option>
+                            <option value="2h" selected>Next 2 Hours</option>
+                            <option value="4h">Next 4 Hours</option>
+                            <option value="end-of-day">By End of Business Day</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="handling-notes">Special Handling / Storage Instructions</label>
+                        <textarea id="handling-notes" rows="1" placeholder="e.g., Keep refrigerated, bring clean storage crates"></textarea>
+                    </div>
+                </div>
+
+                <!-- 5. GEOLOCATION MATCHING BOUNDS -->
+                <div class="form-group">
+                    <label>Pickup Location Anchor Coordinate</label>
+                    <div class="map-placeholder">
+                        [ 📍 Google Maps API Geofencing Component Space ]
+                        <p style="font-size:11px; font-weight:normal; margin-top:5px; color:#868e96;">Matches to saved profile address: 742 Evergreen Terrace</p>
+                    </div>
+                </div>
+
+                <!-- 6. TRANSACTION DISPATCH TERMINATION ACTUATORS -->
+                <div class="actions">
+                    <button type="submit" class="btn-submit">🚀 Broadcast Surplus Food</button>
+                    <a href="#" class="btn-cancel" onclick="alert('Aborting flow: Return to core dashboard home layout.')">← Cancel and Exit Entry Form</a>
+                </div>
+
+            <!-- </form> -->
+        </div>
+
+    </div>
+
+</body>
+</html>

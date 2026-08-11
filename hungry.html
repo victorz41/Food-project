@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodBridge - Claim Dashboard Wireframe</title>
+    <!-- Styled to look exactly like the other wireframes -->
+    <link rel="stylesheet" href="hungry.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="nav-back">← Back to Main Wireframe</a>
+
+        <div class="dashboard-layout">
+            
+            <!-- LEFT COLUMN: LIVE FEED LISTINGS -->
+            <div class="wireframe-panel">
+                <span class="section-label">Screen 1C: Browse & Claim Hub</span>
+                
+                <h2>Available Surplus Food Nearby</h2>
+                <p class="meta-text">Logged in as: Downtown Youth Shelter (ID: org_4432)</p>
+                
+                <!-- Filters Component -->
+                <div class="filter-bar">
+                    <input type="text" placeholder="🔍 Search food or keyword...">
+                    <select>
+                        <option value="all">All Distances</option>
+                        <option value="1">Within 1 mi</option>
+                        <option value="5" selected>Within 5 mi</option>
+                    </select>
+                </div>
+
+                <!-- Scrollable Active Claims Feed -->
+                <div class="listing-feed">
+                    
+                    <!-- Food Item Card 1 -->
+                    <div class="food-card">
+                        <div class="card-header">
+                            <span>📦 20 Boxed Turkey Sandwiches</span>
+                            <span style="color:#6c757d;">0.8 mi away</span>
+                        </div>
+                        <div class="card-details">
+                            <p><strong>From:</strong> Corner Bakery Cafe</p>
+                            <p><strong>Expires:</strong> In 1 hr 15 mins</p>
+                            <p style="margin-top:4px;"><span class="badge badge-urgent">⚠️ Urgent Pickup</span><span class="badge">Dairy-Free Option</span></p>
+                        </div>
+                        <button class="btn-claim" onclick="alert('System Trigger:\n1. Locked item status to [CLAIMED] in Firestore\n2. Dispatched security Verification QR Code to driver app.')">Claim Donation ➔</button>
+                    </div>
+
+                    <!-- Food Item Card 2 -->
+                    <div class="food-card">
+                        <div class="card-header">
+                            <span>🍎 3 Crates Fresh Apples & Pears</span>
+                            <span style="color:#6c757d;">2.3 mi away</span>
+                        </div>
+                        <div class="card-details">
+                            <p><strong>From:</strong> Green Grocers Market</p>
+                            <p><strong>Expires:</strong> End of Business Day</p>
+                            <p style="margin-top:4px;"><span class="badge">Fresh Produce</span><span class="badge">Vegan</span></p>
+                        </div>
+                        <button class="btn-claim" onclick="alert('Item Claimed!')">Claim Donation ➔</button>
+                    </div>
+
+                    <!-- Food Item Card 3 -->
+                    <div class="food-card">
+                        <div class="card-header">
+                            <span>🥖 12 Assorted Artisanal Loaves</span>
+                            <span style="color:#6c757d;">3.1 mi away</span>
+                        </div>
+                        <div class="card-details">
+                            <p><strong>From:</strong> Sunrise Bakers</p>
+                            <p><strong>Expires:</strong> In 3 hrs</p>
+                            <p style="margin-top:4px;"><span class="badge">Bakery / Dry</span></p>
+                        </div>
+                        <button class="btn-claim" onclick="alert('Item Claimed!')">Claim Donation ➔</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: GEOLOCATION MAP COMPONENT -->
+            <div class="wireframe-panel">
+                <span class="section-label">Google Maps Module Workspace</span>
+                
+                <div class="map-canvas">
+                    <div class="map-pin">📍</div>
+                    <p>[ Interactive Map Canvas Window Layer ]</p>
+                    <p style="font-size:11px; font-weight:normal; margin-top:8px; max-width:80%; color:#868e96;">
+                        Simulates live rendering of nearby store coordinates. Pins match positions of current database items in real-time.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
