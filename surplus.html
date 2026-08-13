@@ -3,111 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>FoodBridge - Donor Post Wireframe</title>
+
     <link rel="stylesheet" href="surplus.css">
-    <script src="surplus.js" defer></script>
+
+    <!-- Firebase initialization is handled by init-firebase.js -->
+    <script type="module" src="surplus.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
+
 <body>
 
     <div class="container">
-        
+
         <div class="wireframe-card">
-            <span class="section-label">Screen 1B: Quick-Post Interface</span>
-            
+
+            <span class="section-label">
+                Donate Today, Help Someone in Need
+            </span>
+
             <h2>Create Surplus Food Broadcast</h2>
-            <p class="subtitle">Logged in as: Cafe Central (ID: rest_9921)</p>
+
+            <div class="grid-2" style="margin-bottom: 20px;"></div>
+            <div class="form-group"></div>
+            <label for="restaurant-name">
+                Restaurant Name
+                </label>
+                <input
+                    type="text"
+                    id="restaurant-name"
+                    placeholder="e.g., Cafe Central"
+                    required
+                    >
+                    
+
+                    <div class="form-group"></div>
+                    <label for="restaurant-location">
+                        Restaurant Location
+                        </label>
+                        <input
+                            type="text"
+                            id="restaurant-location"
+                            placeholder="e.g., 123 Main St, City, State"
+                            required
+                            >
+                            
+                        
+                        
+
+
+            <p class="subtitle">
             
-            <!-- <form onsubmit="alert('Form Processed!\n1. Saved to Cloud Firestore DB\n2. Triggered Firebase Cloud Messaging Ping'); return false;"> -->
-                
+            </p>
+
+            <form id="surplus-form">
+
                 <!-- 1. FOOD DESCRIPTION -->
                 <div class="form-group">
-                    <label for="food-title">What food inventory do you have surplus of?</label>
-                    <input type="text" id="food-title" placeholder="e.g., 15 Boxed Salads, 8 Loaves of Sourdough Bread" required>
+
+                    <label for="food-title">
+                        What food inventory do you have surplus of?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="food-title"
+                        placeholder="e.g., 15 Boxed Salads, 8 Loaves of Sourdough Bread"
+                        required
+                    >
+
                 </div>
 
-                <!-- 2. CATEGORY & QUANTITY GRID -->
+
+                <!-- 2. CATEGORY & QUANTITY -->
                 <div class="grid-2">
+
                     <div class="form-group">
-                        <label for="food-category">Food Category Tag</label>
+
+                        <label for="food-category">
+                            Food Category Tag
+                        </label>
+
                         <select id="food-category">
-                            <option value="prepared">Perishable / Prepared Meals</option>
-                            <option value="bakery">Bakery / Dry Staple Goods</option>
-                            <option value="produce">Fresh Produce / Fruits</option>
-                            <option value="dairy">Dairy / Refrigerated Goods</option>
+
+                            <option value="prepared">
+                                Perishable / Prepared Meals
+                            </option>
+
+                            <option value="bakery">
+                                Bakery / Dry Staple Goods
+                            </option>
+
+                            <option value="produce">
+                                Fresh Produce / Fruits
+                            </option>
+
+                            <option value="dairy">
+                                Dairy / Refrigerated Goods
+                            </option>
+
                         </select>
+
                     </div>
-                    
+
+
                     <div class="form-group">
-                        <label for="food-qty">Total Quantity (Estimated Servings)</label>
-                        <input type="number" id="food-qty" min="1" placeholder="e.g., 15" required>
+
+                        <label for="food-qty">
+                            Total Quantity (Estimated Servings)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="food-qty"
+                            min="1"
+                            placeholder="e.g., 15"
+                            required
+                        >
+
                     </div>
+
                 </div>
+
 
                 <!-- 3. ALLERGEN INFORMATION -->
                 <div class="form-group">
-                    <label>Allergen & Dietary Triggers (Check all that apply)</label>
+
+                    <label>
+                        Allergen & Dietary Triggers
+                        (Check all that apply)
+                    </label>
+
                     <div class="checkbox-grid">
+
                         <div class="checkbox-item">
-                            <input type="checkbox" id="alg-nuts"> 
-                            <label for="alg-nuts" style="display:inline; font-weight:normal; text-transform:none;">
+
+                            <input
+                                type="checkbox"
+                                id="alg-nuts"
+                            >
+
+                            <label
+                                for="alg-nuts"
+                                style="display:inline; font-weight:normal; text-transform:none;"
+                            >
                                 Contains Nuts
                             </label>
+
                         </div>
+
+
                         <div class="checkbox-item">
-                            <input type="checkbox" id="alg-dairy"> 
-                            <label for="alg-dairy" style="display:inline; font-weight:normal; text-transform:none;">
+
+                            <input
+                                type="checkbox"
+                                id="alg-dairy"
+                            >
+
+                            <label
+                                for="alg-dairy"
+                                style="display:inline; font-weight:normal; text-transform:none;"
+                            >
                                 Contains Dairy
                             </label>
+
                         </div>
+
+
                         <div class="checkbox-item">
-                            <input type="checkbox" id="diet-veg"> 
-                            <label for="diet-veg" style="display:inline; font-weight:normal; text-transform:none;">
+
+                            <input
+                                type="checkbox"
+                                id="diet-veg"
+                            >
+
+                            <label
+                                for="diet-veg"
+                                style="display:inline; font-weight:normal; text-transform:none;"
+                            >
                                 Vegetarian Friendly
                             </label>
+
                         </div>
+
+
                         <div class="checkbox-item">
-                            <input type="checkbox" id="diet-gluten"> 
-                            <label for="diet-gluten" style="display:inline; font-weight:normal; text-transform:none;">
+
+                            <input
+                                type="checkbox"
+                                id="diet-gluten"
+                            >
+
+                            <label
+                                for="diet-gluten"
+                                style="display:inline; font-weight:normal; text-transform:none;"
+                            >
                                 Gluten-Free Choice
                             </label>
+
                         </div>
+
                     </div>
+
                 </div>
 
-                <!-- 4. LOGISTICS & FRESHNESS EXPIRATION TIMERS -->
+
+                <!-- 4. LOGISTICS & FRESHNESS -->
                 <div class="grid-2">
+
                     <div class="form-group">
-                        <label for="pickup-window">Available Pickup Window Until</label>
+
+                        <label for="pickup-window">
+                            Available Pickup Window Until
+                        </label>
+
                         <select id="pickup-window">
-                            <option value="1h">Next 1 Hour (Urgent)</option>
-                            <option value="2h" selected>Next 2 Hours</option>
-                            <option value="4h">Next 4 Hours</option>
-                            <option value="end-of-day">By End of Business Day</option>
+
+                            <option value="1h">
+                                Next 1 Hour (Urgent)
+                            </option>
+
+                            <option value="2h" selected>
+                                Next 2 Hours
+                            </option>
+
+                            <option value="4h">
+                                Next 4 Hours
+                            </option>
+
+                            <option value="end-of-day">
+                                By End of Business Day
+                            </option>
+
                         </select>
+
                     </div>
+
 
                     <div class="form-group">
-                        <label for="handling-notes">Special Handling / Storage Instructions</label>
-                        <textarea id="handling-notes" rows="1" placeholder="e.g., Keep refrigerated, bring clean storage crates"></textarea>
-                    </div>
-                </div>
 
-                <!-- 5. GEOLOCATION MATCHING BOUNDS -->
+                        <label for="handling-notes">
+                            Special Handling / Storage Instructions
+                        </label>
+
+                        <textarea
+                            id="handling-notes"
+                            rows="1"
+                            placeholder="e.g., Keep refrigerated, bring clean storage crates"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+                
+
+                <!-- 5. GEOLOCATION -->
                 <div class="form-group">
-                    <label>Pickup Location Anchor Coordinate</label>
-                    <div class="map-placeholder">
-                        [ 📍 Google Maps API Geofencing Component Space ]
-                        <p style="font-size:11px; font-weight:normal; margin-top:5px; color:#868e96;">Matches to saved profile address: 742 Evergreen Terrace</p>
+
+                    <label>
+                        Pickup Location Anchor Coordinate
+                    </label>
+
+                    <div class="map-placeholder" id="map">
                     </div>
+                    
+                         <script>
+                        var map = L.map("map").setView([40.7589, -73.9851], 13); // Times Square default
+
+    // 2. Add OpenStreetMap tiles
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // 3. Add pin marker variable
+    var currentMarker;
+
+    // 4. Listen for map clicks
+    map.on('click', async function(e) {
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
+        window.selectedLat = e.latlng.lat;
+        window.selectedLng = e.latlng.lng;
+
+        // Place a new pin or move the existing pin to clicked position
+        if (currentMarker) {
+            currentMarker.setLatLng(e.latlng);
+        } else {
+            currentMarker = L.marker([lat, lng]).addTo(map);
+        }
+
+        // Fill input temporarily with loading status
+        var locationInput = document.querySelector("#restaurant-location");
+        locationInput.value = "Fetching address...";
+
+        // 5. Reverse Geocode (convert Lat/Lng to street address using OpenStreetMap Nominatim)
+        try {
+            var response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+            var data = await response.json();
+
+            if (data && data.display_name) {
+                // Set the fetched address in the input field
+                locationInput.value = data.display_name;
+            } else {
+                locationInput.value = `Lat: ${lat.toFixed(4)}, Lng: ${lng.toFixed(4)}`;
+            }
+        } catch (error) {
+            console.error("Reverse geocoding error:", error);
+            locationInput.value = `Lat: ${lat.toFixed(4)}, Lng: ${lng.toFixed(4)}`;
+        }
+    });
+                        </script>
+
                 </div>
 
-                <!-- 6. TRANSACTION DISPATCH TERMINATION ACTUATORS -->
+
+                <!-- 6. SUBMIT -->
                 <div class="actions">
-                    <button type="submit" class="btn-submit">🚀 Broadcast Surplus Food</button>
-                    <a href="#" class="btn-cancel" onclick="alert('Aborting flow: Return to core dashboard home layout.')">← Cancel and Exit Entry Form</a>
+
+                    <button
+                        type="submit"
+                        class="btn-submit"
+                        id="submit-btn"
+                    >
+                        🚀 Broadcast Surplus Food
+                    </button>
+
+                    <a
+                        href="index.html"
+                        class="btn-cancel"
+                        onclick="alert('Aborting: Returning to dashboard.')"
+                    >
+                        ← Cancel and Exit Entry Form
+                    </a>
+
                 </div>
 
-            <!-- </form> -->
+            </form>
+
         </div>
 
     </div>

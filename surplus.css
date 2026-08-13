@@ -111,7 +111,7 @@
         .map-placeholder {
             border: 2px dashed #dee2e6;
             background-color: #f1f3f5;
-            height: 140px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -121,7 +121,12 @@
             font-weight: bold;
             font-size: 13px;
             border-radius: 4px;
+            width: 100%;          /* Allows responsiveness on small screens */
+        max-width: 1200px;    /* Prevents it from expanding endlessly on wide screens */
+        margin-left: auto;   /* Centers the element horizontally */
+        margin-right: auto;  /* Centers the element horizontally */
         }
+        
 
         /* Action Buttons */
         .actions {
@@ -167,3 +172,9 @@
             .grid-2 { grid-template-columns: 1fr; gap: 25px; }
             .checkbox-grid { grid-template-columns: 1fr; }
         }
+
+        #map {
+    height: 500px; 
+    width: 100%;   
+    margin-bottom: 15px; 
+}
